@@ -62,6 +62,7 @@ h1, h3 {
   overflow: hidden;
   transform: translateY(-50%);
   box-sizing: content-box;
+  z-index: 1;
 }
 
 .line-2 {
@@ -74,8 +75,49 @@ h1, h3 {
   overflow: hidden;
   transform: translateY(-50%);
   box-sizing: content-box;
+  z-index: 1;
 }
 
 .anim-typewriter, .anim-typewriter-2 {
   width: 0;
+}
+
+.cone {
+  width: 0;
+  height: 0;
+  border-left: 200px solid transparent;
+  border-right: 200px solid transparent;
+  border-top: 600px solid rgba(255,255,0, 0.6);
+  position: fixed;
+  bottom: 20px;
+  opacity: 0;
+}
+
+.App-link-wrapper span {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  font-family: "Stu Tech";
+  color: rgba(255,255,255, 0.5);
+  opacity: 0;
+  cursor: pointer;
+  margin-top: -100px;
+}
+
+.App-link-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+@media only screen and (max-device-width: 375px) {
+  .App-link-wrapper {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .App-link-wrapper span {
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
 }

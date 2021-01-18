@@ -1,79 +1,67 @@
 import { useEffect } from 'react';
-import { gsap, SteppedEase, TimelineMax } from 'gsap';
 
 import { ReactComponent as Logo } from './chicago.svg';
+import { animateTyping, darkenText, lightenText, makeElmVisible, moveCone, traceSkyline } from './AnimationService';
 
 import './App.css';
 
 function App() {
+  const isMobile = window.innerWidth < 850;
+
   useEffect(() => {
-    const orig = document.querySelector('path');
+    const $cone = document.querySelector('.cone');
+    const newHeight = window.innerHeight + 300;
 
-    const obj = {
-      length: 0,
-      pathLength: orig.getTotalLength()
-    };
+    $cone.style.borderTop = `${newHeight}px solid rgba(255,255,0, 0.7)`;
+    $cone.style.borderLeft = `${Math.floor(newHeight / 3)}px solid transparent`;
+    $cone.style.borderRight = `${Math.floor(newHeight / 3)}px solid transparent`;
 
-    orig.style.stroke = '#f60';
-    orig.style.strokeWidth = '3';
+    traceSkyline();
+    animateTyping('.anim-typewriter', 4, 2);
 
-    gsap.to(obj, { duration: 8, length: obj.pathLength, onUpdate: drawLine, ease: 'none' });
-
-    function drawLine() {
-      orig.style.strokeDasharray = [ obj.length, obj.pathLength ].join(' ');
-    }
-  }, []);
-
-
-  // Stu Pearlman
-  useEffect(() => {
-    var tl = new TimelineMax({
-      paused: true
-    });
-// letter animation
-    tl.fromTo(".anim-typewriter", 2, {
-      width: "0",
-    }, {
-      width: "100%", /* same as CSS .line-1 width */
-      ease: SteppedEase.config(37)
-    }, 0);
-// text cursor animation
-    tl.fromTo(".anim-typewriter", 0.5, {
-      "border-right-color": "rgba(255,255,255,1)"
-    }, {
-      "border-right-color": "rgba(255,255,255,0)",
-      repeat: 4,
-      ease: SteppedEase.config(37)
-    }, 0);
-
-    tl.play();
-  }, []);
-
-  // Software Architect
-  useEffect(() => {
     setTimeout(() => {
-      var tl = new TimelineMax({
-        paused: true
-      });
-  // letter animation
-      tl.fromTo(".anim-typewriter-2", 3.5, {
-        width: "0",
-      }, {
-        width: "85%", /* same as CSS .line-1 width */
-        ease: SteppedEase.config(37)
-      }, 0);
-  // text cursor animation
-      tl.fromTo(".anim-typewriter-2", 0.5, {
-        "border-right-color": "rgba(255,255,255,1)"
-      }, {
-        "border-right-color": "rgba(255,255,255,0)",
-        repeat: -1,
-        ease: SteppedEase.config(37)
-      }, 0);
+      animateTyping('.anim-typewriter-2', -1, 3.5, '85%');
+    }, 2300);
 
-      tl.play();
-    }, 2300)
+    setTimeout(() => {
+      makeElmVisible('.App-link-wrapper span');
+    }, 6100);
+
+    setTimeout(() => {
+      makeElmVisible('.cone');
+      darkenText('.App-companies');
+
+      if (isMobile) {
+        darkenText('.App-clients');
+        darkenText('.App-code');
+      }
+    }, 6500);
   }, []);
+
+  function leanLeft() {
+    darkenText('.App-clients');
+    lightenText('.App-companies');
+    lightenText('.App-code');
+    !isMobile && moveCone(-38, 'left');
+  }
+
+  function leanRight() {
+    darkenText('.App-code');
+    lightenText('.App-companies');
+    lightenText('.App-clients');
+    !isMobile && moveCone(38, 'right');
+  }
+
+  function leanCenter() {
+    darkenText('.App-companies');
+    lightenText('.App-code');
+    lightenText('.App-clients');
+    !isMobile && moveCone(0);
+  }
+
+  function openGithub() {
+    window.open('https://github.com/stuartpearlman', '_blank');
+  }
 
   return (
     <div className="App">
@@ -82,6 +70,12 @@ function App() {
           <h1 className="line-1 anim-typewriter">Stu Pearlman</h1>
           <h3 className="line-2 anim-typewriter-2">Software Architect</h3>
         </div>
+        <div className="App-link-wrapper">
+          <span className="App-clients" onMouseOver={leanLeft}>Clients</span>
+          <span className="App-companies" onMouseOver={leanCenter}>Companies</span>
+          <span className="App-code" onMouseOver={leanRight} onClick={openGithub}>Code</span>
+        </div>
+        <div className="cone"/>
         <Logo className="App-skyline"/>
       </header>
     </div>
