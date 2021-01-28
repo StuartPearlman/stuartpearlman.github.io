@@ -1,12 +1,25 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import { ReactComponent as Logo } from './chicago.svg';
-import { animateTyping, darkenText, lightenText, makeElmVisible, moveCone, traceSkyline } from './AnimationService';
+import {
+  animateTyping,
+  closeCompanies,
+  darkenText,
+  lightenText,
+  makeElmVisible,
+  moveCone,
+  selectCompanies,
+  traceSkyline,
+  selectClients,
+  closeClients
+} from './AnimationService';
 
 import './App.css';
 
 function App() {
   const isMobile = window.innerWidth < 850;
+
+  const [ isCompaniesSelected, setIsCompaniesSelected ] = useState(true);
 
   useEffect(() => {
     const $cone = document.querySelector('.cone');
@@ -63,6 +76,16 @@ function App() {
     window.open('https://github.com/stuartpearlman', '_blank');
   }
 
+  function openCompanies() {
+    setIsCompaniesSelected(true);
+    selectCompanies();
+  }
+
+  function openClients() {
+    setIsCompaniesSelected(false);
+    selectClients();
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -71,11 +94,135 @@ function App() {
           <h3 className="line-2 anim-typewriter-2">Software Architect</h3>
         </div>
         <div className="App-link-wrapper">
-          <span className="App-clients" onMouseOver={leanLeft}>Clients</span>
-          <span className="App-companies" onMouseOver={leanCenter}>Companies</span>
+          <span className="App-clients" onMouseOver={leanLeft} onClick={openClients}>Clients</span>
+          <span className="App-companies" onMouseOver={leanCenter} onClick={openCompanies}>Companies</span>
           <span className="App-code" onMouseOver={leanRight} onClick={openGithub}>Code</span>
         </div>
         <div className="cone"/>
+        <div className="vertical-line">
+          <span className="App-close-modal" onClick={isCompaniesSelected ? closeCompanies : closeClients}>X</span>
+          <div className="App-card-wrapper">
+            <div className="App-card">
+              <h3>Inspire11</h3>
+              <p>
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+              </p>
+            </div>
+
+            <div className="App-card">
+              <h3>Cars.com</h3>
+              <p>
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+              </p>
+            </div>
+            <div className="App-card">
+              <h3>NextCapital</h3>
+              <p>
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+              </p>
+            </div>
+            <div className="App-filler-block"/>
+          </div>
+        </div>
         <Logo className="App-skyline"/>
       </header>
     </div>
