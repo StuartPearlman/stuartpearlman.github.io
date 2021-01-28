@@ -2,16 +2,19 @@ import { useEffect, useState } from 'react';
 
 import { ReactComponent as Logo } from './chicago.svg';
 import {
+  animateText,
+  animateTextCars,
+  animateTextNext,
   animateTyping,
+  closeClients,
   closeCompanies,
   darkenText,
   lightenText,
   makeElmVisible,
   moveCone,
-  selectCompanies,
-  traceSkyline,
   selectClients,
-  closeClients
+  selectCompanies,
+  traceSkyline
 } from './AnimationService';
 
 import './App.css';
@@ -49,6 +52,10 @@ function App() {
         darkenText('.App-code');
       }
     }, 6500);
+
+    animateText();
+    animateTextCars();
+    animateTextNext();
   }, []);
 
   function leanLeft() {
@@ -103,7 +110,9 @@ function App() {
           <span className="App-close-modal" onClick={isCompaniesSelected ? closeCompanies : closeClients}>X</span>
           <div className="App-card-wrapper">
             <div className="App-card">
-              <h3>Inspire11</h3>
+              <div id="a">
+                <h3 className="App-company-name">Inspire11</h3>
+              </div>
               <p>
                 Blah blah blah
                 Blah blah blah
@@ -143,7 +152,9 @@ function App() {
             </div>
 
             <div className="App-card">
-              <h3>Cars.com</h3>
+              <div id="b">
+                <h3 className="App-company-name">Cars.com</h3>
+              </div>
               <p>
                 Blah blah blah
                 Blah blah blah
@@ -182,7 +193,9 @@ function App() {
               </p>
             </div>
             <div className="App-card">
-              <h3>NextCapital</h3>
+              <div id="c">
+                <h3 className="App-company-name">NextCapital</h3>
+              </div>
               <p>
                 Blah blah blah
                 Blah blah blah

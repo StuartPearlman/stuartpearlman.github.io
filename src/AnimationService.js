@@ -129,6 +129,11 @@ export function selectCompanies() {
       yoyo: true
     });
 
+    TweenMax.to('.vertical-line', 0.5, {
+      backgroundColor: 'transparent',
+      borderLeftColor: 'transparent'
+    });
+
     TweenMax.to('.App-card-wrapper', 0.5, {
       display: 'block',
       ease: SteppedEase.config(37),
@@ -138,6 +143,11 @@ export function selectCompanies() {
 }
 
 export function closeCompanies() {
+  TweenMax.to('.vertical-line', 0.5, {
+    backgroundColor: 'white',
+    borderLeftColor: 'white'
+  });
+
   TweenMax.to('.App-card-wrapper', 0.5, {
     display: 'none',
     ease: SteppedEase.config(37),
@@ -412,4 +422,40 @@ function closeClientsMobile() {
       { y: 0 }
     );
   }, 800);
+}
+
+export function animateText() {
+  const b1 = "linear-gradient(217deg, rgb(240, 108, 0,.9), rgb(240, 108, 0, 0) 70.71%),  linear-gradient(127deg, rgb(0, 42, 76,.9), rgb(0, 42, 76,0) 70.71%), linear-gradient(336deg, rgba(135, 150, 180, .9), rgba(135, 150, 180, 0) 70.71%)";
+  const b2 = "linear-gradient(17deg, rgb(240, 108, 0,.7), rgb(240, 108, 0, 0) 70.71%), linear-gradient(200deg, rgb(0, 42, 76, .9), rgb(0, 42, 76,.2) 70.71%),  linear-gradient(336deg, rgba(135, 150, 180, .8), rgba(135, 150, 180, 0.1) 70.71%)";
+  gsap.fromTo("#a", { background: b1, display: 'inline-block' }, {
+    ease: "none",
+    duration: 6,
+    background: b2,
+    repeat: -1,
+    yoyo: true
+  });
+}
+
+export function animateTextCars() {
+  const b1 = "linear-gradient(217deg, rgba(37, 8, 88, .9), rgba(37, 8, 88, 0) 70.71%),  linear-gradient(127deg, rgba(147, 165, 51, .9), rgba(147, 165, 51, 0) 70.71%), linear-gradient(336deg, rgba(164, 0, 180, .9), rgba(164, 0, 180, 0) 70.71%)";
+  const b2 = "linear-gradient(17deg, rgba(37, 8, 88, .7), rgba(37, 8, 88, 0) 70.71%), linear-gradient(200deg, rgba(147, 165, 51, .9), rgba(147, 165, 51, .2) 70.71%),  linear-gradient(336deg, rgba(164, 0, 180, .8), rgba(164, 0, 180, 0.1) 70.71%)";
+  gsap.fromTo("#b", { background: b1, display: 'inline-block' }, {
+    ease: "none",
+    duration: 6,
+    background: b2,
+    repeat: -1,
+    yoyo: true
+  });
+}
+
+export function animateTextNext() {
+  const b1 = "linear-gradient(217deg, rgba(2, 115, 227, .9), rgba(2, 115, 227, 0) 70.71%),  linear-gradient(127deg, rgba(45, 62, 79, .9), rgba(45, 62, 79, 0) 70.71%), linear-gradient(336deg, rgba(242, 242, 242, .9), rgba(242, 242, 242, 0) 70.71%)";
+  const b2 = "linear-gradient(17deg, rgba(2, 115, 227, .7), rgba(2, 115, 227, 0) 70.71%), linear-gradient(200deg, rgba(45, 62, 79, .9), rgba(45, 62, 79, .2) 70.71%),  linear-gradient(336deg, rgba(242, 242, 242, .8), rgba(242, 242, 242, 0.1) 70.71%)";
+  gsap.fromTo("#c", { background: b1, display: 'inline-block' }, {
+    ease: "none",
+    duration: 6,
+    background: b2,
+    repeat: -1,
+    yoyo: true
+  });
 }

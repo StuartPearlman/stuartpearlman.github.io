@@ -53,6 +53,21 @@ h1, h3 {
   font-family: 'Stu Tech';
 }
 
+p {
+  color: white;
+}
+
+#a, #b, #c {
+  border: 1px solid transparent;
+  border-radius: 50px;
+}
+
+.App-company-name {
+  margin: 0;
+  padding: 15px;
+  color: white;
+}
+
 .line-1 {
   position: relative;
   top: 100%;
@@ -136,7 +151,7 @@ h1, h3 {
 }
 
 .App-close-modal {
-  color: black;
+  color: white;
   font-weight: bold;
   font-family: "Stu Tech";
   position: absolute;
@@ -169,7 +184,7 @@ h1, h3 {
   max-height: 100%;
   overflow: scroll;
   padding: 20px;
-  background-color: white;
+  background-color: black;
   overflow-x: hidden;
 }
 
