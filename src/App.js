@@ -56,6 +56,7 @@ function App() {
     animateText();
     animateTextCars();
     animateTextNext();
+    // eslint-disable-next-line
   }, []);
 
   function leanLeft() {
@@ -90,6 +91,12 @@ function App() {
 
   function openClients() {
     setIsCompaniesSelected(false);
+    document.querySelectorAll('.App-card-wrapper-clients .App-card h3').forEach((elm, index) => {
+      setTimeout(() => {
+        elm.style.animation = 'neon3 1.5s ease-in-out infinite alternate';
+      }, isMobile ? 1600 + (index * 200) : 2600 + (index * 200));
+    });
+
     selectClients();
   }
 
@@ -196,6 +203,128 @@ function App() {
               <div id="c">
                 <h3 className="App-company-name">NextCapital</h3>
               </div>
+              <p>
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+              </p>
+            </div>
+            <div className="App-filler-block"/>
+          </div>
+
+          <div className="App-card-wrapper-clients">
+            <div className="App-card">
+              <h3 className="App-company-name">Client One</h3>
+              <p>
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+              </p>
+            </div>
+
+            <div className="App-card">
+              <h3 className="App-company-name">Client Two</h3>
+              <p>
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+                Blah blah blah
+              </p>
+            </div>
+            <div className="App-card">
+              <h3 className="App-company-name">Client Three</h3>
               <p>
                 Blah blah blah
                 Blah blah blah

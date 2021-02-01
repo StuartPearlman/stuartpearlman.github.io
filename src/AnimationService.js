@@ -256,7 +256,7 @@ export function selectClients() {
         yoyo: true
       });
 
-      TweenMax.to('.App-card-wrapper', 0.5, {
+      TweenMax.to('.App-card-wrapper-clients', 0.5, {
         display: 'block',
         ease: SteppedEase.config(37),
         yoyo: true
@@ -317,7 +317,7 @@ function selectClientsMobile() {
       borderLeftColor: 'black'
     });
 
-    TweenMax.to('.App-card-wrapper', 0.5, {
+    TweenMax.to('.App-card-wrapper-clients', 0.5, {
       display: 'block',
       ease: SteppedEase.config(37),
       yoyo: true
@@ -328,12 +328,16 @@ function selectClientsMobile() {
 export function closeClients() {
   const isMobile = window.innerWidth < 850;
 
+  document.querySelectorAll('.App-card-wrapper-clients .App-card h3').forEach((elm) => {
+    elm.style.animation = '';
+  });
+
   if (isMobile) {
     closeClientsMobile();
     return;
   }
 
-  TweenMax.to('.App-card-wrapper', 0.5, {
+  TweenMax.to('.App-card-wrapper-clients', 0.5, {
     display: 'none',
     ease: SteppedEase.config(37),
     yoyo: true
@@ -397,7 +401,7 @@ export function closeClients() {
 }
 
 function closeClientsMobile() {
-  TweenMax.to('.App-card-wrapper', 0.5, {
+  TweenMax.to('.App-card-wrapper-clients', 0.5, {
     display: 'none',
     ease: SteppedEase.config(37),
     yoyo: true
