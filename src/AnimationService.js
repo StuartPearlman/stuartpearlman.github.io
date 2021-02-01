@@ -130,8 +130,8 @@ export function selectCompanies() {
     });
 
     TweenMax.to('.vertical-line', 0.5, {
-      backgroundColor: 'transparent',
-      borderLeftColor: 'transparent'
+      backgroundColor: isMobile ? 'black' : 'transparent',
+      borderLeftColor: isMobile ? 'black' : 'transparent'
     });
 
     TweenMax.to('.App-card-wrapper', 0.5, {
@@ -205,7 +205,6 @@ export function selectClients() {
 
   TweenLite.to('.App-clients', 0.7,
     {
-      x: 0,
       left: "50%",
       position: 'absolute',
       pointerEvents: 'none',
@@ -246,6 +245,11 @@ export function selectClients() {
     }, 800);
 
     setTimeout(() => {
+      TweenMax.to('.vertical-line', 0.5, {
+        backgroundColor: 'transparent',
+        borderLeftColor: 'transparent'
+      });
+
       TweenMax.to('.App-close-modal', 0.5, {
         display: 'inline',
         ease: SteppedEase.config(37),
@@ -308,6 +312,11 @@ function selectClientsMobile() {
       yoyo: true
     });
 
+    TweenMax.to('.vertical-line', 0.5, {
+      backgroundColor: 'black',
+      borderLeftColor: 'black'
+    });
+
     TweenMax.to('.App-card-wrapper', 0.5, {
       display: 'block',
       ease: SteppedEase.config(37),
@@ -337,6 +346,11 @@ export function closeClients() {
   });
 
   TweenMax.to('.vertical-line', 0.5, {
+    backgroundColor: 'white',
+    borderLeftColor: 'white'
+  });
+
+  TweenMax.to('.vertical-line', 0.5, {
     width: 0,
     ease: SteppedEase.config(37),
     yoyo: true
@@ -355,7 +369,6 @@ export function closeClients() {
   setTimeout(() => {
     TweenLite.to('.App-clients', 0.7,
       {
-        x: 0,
         left: 'auto',
         pointerEvents: 'auto',
         marginLeft: 0,
@@ -366,7 +379,6 @@ export function closeClients() {
       TweenLite.to('.App-clients', 0.2,
         {
           position: 'static',
-          x: 0,
           ease: ExpoScaleEase.config(100, 0),
         }
       );
@@ -399,6 +411,8 @@ function closeClientsMobile() {
 
   TweenMax.to('.vertical-line', 0.5, {
     width: 0,
+    backgroundColor: 'white',
+    borderLeftColor: 'white',
     ease: SteppedEase.config(37),
     yoyo: true
   });
