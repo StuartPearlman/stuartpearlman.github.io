@@ -8,12 +8,20 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
 @font-face {
   font-family: "Stu Tech";
-  src: url("stu-tech.otf");
+  src: url("assets/stu-tech.otf");
+}
+
+h1, h3 {
+  font-family: 'Stu Tech';
+}
+
+p, li {
+  color: white;
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
 }
