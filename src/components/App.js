@@ -92,13 +92,6 @@ function App() {
 
   function openClients() {
     setIsCompaniesSelected(false);
-    document.querySelectorAll('.App-card-wrapper-clients .App-card h3').forEach((elm, index) => {
-      setTimeout(() => {
-        elm.style.animation = 'neon3 1.5s ease-in-out infinite alternate';
-        elm.style.transform = 'translate3d(0, 0, 0)';
-      }, isMobile ? 1600 + (index * 200) : 2600 + (index * 200));
-    });
-
     selectClients();
   }
 

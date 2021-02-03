@@ -188,6 +188,25 @@ export function closeCompanies() {
 }
 
 export function selectClients() {
+  const headings = document.querySelectorAll('.App-card-wrapper-clients .App-card h3');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.intersectionRatio > 0) {
+        setTimeout(() => {
+          entry.target.style.animation = 'neon3 1.5s ease-in-out infinite alternate';
+          entry.target.style.transform = 'translate3d(0, 0, 0)';
+        }, 200)
+      } else {
+        entry.target.style.animation = '';
+      }
+    });
+  });
+
+  headings.forEach(heading => {
+    observer.observe(heading);
+  });
+
   const isMobile = window.innerWidth < 850;
 
   if (isMobile) {
