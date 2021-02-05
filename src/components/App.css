@@ -137,6 +137,7 @@
   top: 10px;
   cursor: pointer;
   display: none;
+  z-index: 1;
 }
 
 .App-card {
@@ -158,6 +159,7 @@
   padding: 20px;
   background-color: black;
   overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 .App-card-wrapper-clients .App-card h3 {

@@ -29,7 +29,7 @@ function App() {
     const $cone = document.querySelector('.cone');
     const newHeight = window.innerHeight + 300;
 
-    $cone.style.borderTop = `${newHeight}px solid rgba(255,255,0, 0.7)`;
+    $cone.style.borderTop = `${newHeight}px solid rgba(232,210,12,0.91)`;
     $cone.style.borderLeft = `${Math.floor(newHeight / 3)}px solid transparent`;
     $cone.style.borderRight = `${Math.floor(newHeight / 3)}px solid transparent`;
 

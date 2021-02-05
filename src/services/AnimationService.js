@@ -188,6 +188,13 @@ export function closeCompanies() {
 }
 
 export function selectClients() {
+  const isMobile = window.innerWidth < 850;
+
+  if (isMobile) {
+    selectClientsMobile();
+    return;
+  }
+
   const headings = document.querySelectorAll('.App-card-wrapper-clients .App-card h3');
 
   const observer = new IntersectionObserver(entries => {
@@ -206,13 +213,6 @@ export function selectClients() {
   headings.forEach(heading => {
     observer.observe(heading);
   });
-
-  const isMobile = window.innerWidth < 850;
-
-  if (isMobile) {
-    selectClientsMobile();
-    return;
-  }
 
   TweenLite.to('.App-companies', 1.2,
     { x: (window.innerWidth / 2), opacity: 0, pointerEvents: 'none', }
@@ -286,6 +286,25 @@ export function selectClients() {
 
 function selectClientsMobile() {
   const isMobile = window.innerWidth < 850;
+
+  const headings = document.querySelectorAll('.App-card-wrapper-clients .App-card h3');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.intersectionRatio > 0) {
+        setTimeout(() => {
+          entry.target.style['-webkit-text-stroke'] = '1px rgba(255,255,255,0.5)';
+          entry.target.style.transform = 'translate3d(0, 0, 0)';
+        }, 400)
+      } else {
+        entry.target.style['-webkit-text-stroke'] = '';
+      }
+    });
+  });
+
+  headings.forEach(heading => {
+    observer.observe(heading);
+  });
 
   TweenLite.to('.App-companies', 1.5,
     { y: (-window.innerHeight / 2) - 100, opacity: 0 }
