@@ -1,4 +1,7 @@
-export const clients = [ {
+export const clients = [{
+  heading: 'Competitive Intelligence',
+  body: 'Architect and deliver a solution for ingesting, sorting, refreshing, and surfacing the most business critical web scraping results. Include a low-latency caching and persistence layer for faster retrieval times as well as direct integration into Intelligence2day. The final application reduced discovery and publishing time from over five hours to just 45 minutes.'
+}, {
   heading: 'Financial Technology',
   body: 'Architect a performant, scalable data centralization platform for data persistence and modeling. Tables are dynamically generated to user specification with changes tracked bitemporally for audit and data integrity purposes. Support advanced use cases such as queryable intersectional data and user-defined data boundaries and quality gates.'
 }, {
